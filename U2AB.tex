@@ -1,0 +1,400 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on the next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on the next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on the next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%
+
+\newcommand{\hmwkTitle}{Assignment\ B}
+\newcommand{\hmwkDueDate}{March 19, 2024}
+\newcommand{\hmwkClass}{MCV4U}
+\newcommand{\hmwkClassTime}{Unit 2}
+\newcommand{\hmwkClassInstructor}{M. Ellenbogen}
+\newcommand{\hmwkAuthorName}{\textbf{G. Polstvin}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 6:00pm}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+% Begin Homework.
+
+% PROBLEM 1
+% PROBLEM 1
+% PROBLEM 1
+
+\begin{homeworkProblem}
+    Evaluate and state what this limit tells you about the function.
+    \[ \lim_{{x \to 0^+}} \frac{{x-5}}{{x(x+1)}} \]
+
+    \textbf{Solution} \\
+
+    The limit of $\frac{x-5}{x(x+1)}$ as $x$ approaches 0 does not exist. \\
+
+
+    \textbf{Calculations} \\
+
+    By definition, the limit exists at a point only if the left-hand limit and the right-hand limit must be equal, so we need:
+
+    \[
+        \lim_{x \to 0^-} f(x) = \lim_{x \to 0^+} f(x)
+    \] \\
+
+    We have already shown that the right-hand limit is:
+
+    \[
+        \lim_{x \to 0^+} f(x) = \lim_{x \to 0^+} \frac{x-5}{x(x+1)} = -\infty
+    \] \\
+
+    Evaluating the left hand limit produces:
+
+    \[
+        \begin{split}
+            \lim_{x \to 0^-} f(x) &= \lim_{x \to 0^-} \frac{x-5}{x(x+1)} \\
+            &= \lim_{x \to 0^-} \left(\frac{1}{\frac{1}{x-5} - \frac{1}{x}}\right) \\
+            &= \lim_{x \to 0^-} \left(\frac{1}{\frac{-5}{x(x-5)}}\right) \\
+            &= \lim_{x \to 0^-} \left(-\frac{x(x-5)}{5}\right) \\
+            &= +\infty
+        \end{split}
+    \] \\
+
+    Since the left-hand limit is $+\infty$ and the right-hand limit is $-\infty$, the limits are not equal. \\
+
+    Therefore, the limit of $\frac{x-5}{x(x+1)}$ as $x$ approaches 0 does not exist.
+
+\end{homeworkProblem}
+
+\pagebreak
+
+% PROBLEM 2
+% PROBLEM 2
+% PROBLEM 2
+
+% FINISH THIS SHIT
+% RATIONAL NUMBERS ONLY
+% STATE SECOND DERIVATIVE VALUES @ THE EXTREMA
+
+\pagebreak
+
+\begin{homeworkProblem}
+    For the function $f(x) = \frac{1}{x(x-1)^2}$, find the local extrema.
+    Then, classify the local extrema using the second derivatives test.
+
+    \textbf{Solution}
+    \[
+        \text{Local Extrema: }\left(\frac{1}{3}, \frac{27}{4}\right)
+    \]
+
+    \textbf{Calculations}
+
+    First derivative:
+    \[
+        f'(x) = -\frac{3x-1}{(x-1)^3x^2}
+    \]
+
+    Second derivative:
+    \[
+        f''(x) = \frac{2(6x^2-4x+1)}{(x-1)^4x^3}
+    \]
+
+    Set the first derivative equal to zero, then the numerator, solve for $x$, and divide by three.
+    \[
+        -\frac{3x-1}{(x-1)^3x^2} = 0
+    \]
+    \[
+        3x - 1 = 0
+    \]
+    \[
+        3x = 1
+    \]
+    \[
+        x = \frac{1}{3}
+    \]
+
+    Evaluate the second derivative with $x$ equal to $\frac{1}{3}$.
+    \[
+        f''\left(\frac{1}{3}\right) = \frac{2\left(6\left(\frac{1}{3}\right)^2-4\left(\frac{1}{3}\right)+1\right)}{\left(\frac{1}{3}-1\right)^4\left(\frac{1}{3}\right)^3}
+    \]
+    \[
+        f''\left(\frac{1}{3}\right) = \frac{2\left(\frac{2}{9}-\frac{4}{9}+1\right)}{(-\frac{2}{3})^4\left(\frac{1}{27}\right)}
+    \]
+    \[
+        f''\left(\frac{1}{3}\right) = \frac{2\left(\frac{7}{9}\right)}{\frac{16}{81}}
+    \]
+    \[
+        f''\left(\frac{1}{3}\right) = \frac{729}{8}
+    \]
+
+    Since $f''\left(\frac{1}{3}\right) > 0$, the point $\left(\frac{1}{3}, f\left(\frac{1}{3}\right)\right)$ is a local maximum.
+
+    Now substitute $x = \frac{1}{3}$ into the function $f(x)$ to find the $y$-value.
+    \[
+        f\left(\frac{1}{3}\right) = \frac{1}{\left(\frac{1}{3}\right)\left(\frac{1}{3}-1\right)^2}
+    \]
+    \[
+        f\left(\frac{1}{3}\right) = \frac{1}{\left(\frac{1}{3}\right)\left(-\frac{2}{3}\right)^2}
+    \]
+    \[
+        f\left(\frac{1}{3}\right) = \frac{27}{4}
+    \]
+
+    Therefore, the local maximum of $f(x) = \frac{1}{x(x-1)^2}$ is $\left(\frac{1}{3}, \frac{27}{4}\right)$.
+\end{homeworkProblem}
+
+\pagebreak
+
+% PROBLEM 3
+% PROBLEM 3
+% PROBLEM 3
+
+% WHEN WRITING QUIZ, PUT ANSWER IN BRACKET INTERVAL NOTATION.
+
+\begin{homeworkProblem}
+    The function $f(x) = x^3 - 6x^2 + 9x$ is concave down on which interval? \\
+
+    \textbf{Solution}
+    The function $f(x) = x^3 - 6x^2 + 9x$ is concave downward on $-\infty < x < 2$. \\
+
+    \textbf{Calculations}
+    Begin by taking the first derivative:
+    \[
+        \begin{aligned}
+            \frac{\mathrm{d}}{\mathrm{d}x}(x^3-6x^2+9x)
+              & = 3x^2 - 12x + 9     \\
+              & = 3x^2-12x+9         \\
+              & = f'(x) = 3x^2-12x+9
+        \end{aligned}
+    \]
+
+    Now, take the second derivative:
+    \[
+        \begin{aligned}
+            \deriv{3x^2-12x+9 }
+              & = 3 \cdot \deriv{x^2 - 12} \cdot \deriv{x} + \deriv{9} \\
+              & = 3 \cdot 2x - 12 \cdot 1 + 0                          \\
+              & = 6x - 12                                              \\
+              & = f''(x) = 6x-12
+        \end{aligned}
+    \]
+
+    To find the points of inflection, we set $x$ in the second derivative to $0$, which produces:
+    \[
+        \begin{aligned}
+            6x-12 & = 0  \\
+            6x    & = 12 \\
+            x     & = 2
+        \end{aligned}
+    \]
+
+    From here, we plug it into our original equation:
+    \[
+        \begin{aligned}
+            f(x) = x^3 - 6x^2 + 9x \\
+              & = (2)^3 - 6(2)^2 + 9(2) \\
+              & = 2
+        \end{aligned}
+    \]
+
+    Which makes the point of inflection for $f(x) = x^3 - 6x^2 + 9x$ equal to
+    \((2, 2)\).
+
+    To find the interval, we can plug in another number for $x$ and calculate it. Let's use 4:
+
+    \[
+        \begin{aligned}
+            f(x) = x^3 - 6x^2 + 9x \\
+              & = (4)^3 - 6(4)^2 + 9(4) \\
+              & = 4
+        \end{aligned}
+    \]
+
+    This gives us a co-ordinate of $(4, 4)$. We will assume this interval is concave upward $(2<x<\infty \:)$, which makes $-\infty \:<x<2$ the concave downward interval.
+
+\end{homeworkProblem}
+
+\pagebreak
+
+% PROBLEM 5
+% PROBLEM 5
+% PROBLEM 5
+
+\begin{homeworkProblem}
+
+    For the function \( f(x) = 3x^4 - 12x^3 \), find the points of inflection. \\
+
+    \textbf{Solution} \\
+
+    Inflection points are found at \((0, 0)\), \((2, -48)\) \\
+
+    \textbf{Calculations} \\
+
+    First derivative:
+
+    \[
+        \begin{split}
+            f'(x) &= \frac{d}{dx}(3x^4-12x^3) \\
+            &= 3 \cdot \frac{d}{dx}(x^4) - 12 \cdot \frac{d}{dx}(x^3) \\
+            &= 3 \cdot 4x^3 - 12 \cdot 3x^2 \\
+            &= 12x^3 - 36x^2 \\
+            &= 12x^2(x-3)
+        \end{split}
+    \]
+
+
+    Second derivative:
+    \[
+        \begin{split}
+            f''(x) &= \frac{d^2}{dx^2}(12x^2(x-3)) \\
+            &= 12 \cdot \frac{d}{dx}(x^2(x-3)) \\
+            &= 12 \left(2x(x-3) + x^2\right) \\
+            &= 12(2x^2 - 6x + x^2) \\
+            &= 12(3x^2 - 6x)
+        \end{split}
+    \]
+
+    Which can be further simplified as:
+
+    \[
+        \begin{split}
+            f''(x) &= 36x(x-2)
+        \end{split}
+    \]
+
+    Third derivative:
+
+    \[
+        \begin{split}
+            f'''(x) &= \frac{d^3}{dx^3}(36x(x-2)) \\
+            &= 36 \cdot \frac{d}{dx}(x(x-2)) \\
+            &= 36(1 \cdot (x-2) + x) \\
+            &= 36(x-2+x) \\
+            &= 72x-72
+        \end{split}
+    \]
+
+    Setting the second derivative equal to zero, we get:
+    \[
+        36x(x-2) = 0 \implies x = 0, 2
+    \] \\
+
+    To check if these points are points of inflection, we need to evaluate the sign of the third derivative at these points.
+
+    For $x = 0$:
+    \[
+        f'''(0) = 72(0) - 72 = -72 < 0
+    \]
+
+    For $x = 2$:
+    \[
+        f'''(2) = 72(2) - 72 = 72 > 0
+    \]
+
+    Since the third derivative changes sign from negative to positive as $x$ increases through $x = 0$ and $x = 2$, these points are indeed points of inflection. \\
+
+    To find the corresponding $y$-values, we substitute $x = 0$ and $x = 2$ into the original function:
+    \[
+        f(0) = 3(0)^4 - 12(0)^3 = 0 \quad \text{and} \quad f(2) = 3(2)^4 - 12(2)^3 = -48
+    \]
+
+    Therefore, the points of inflection are \((0, 0)\) and \((2, -48)\).
+
+
+\end{homeworkProblem}
+
+\end{document}
